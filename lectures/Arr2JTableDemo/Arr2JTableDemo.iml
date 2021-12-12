@@ -7,7 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="com.intellij:forms_rt:7.0.3" level="project" />
-    <orderEntry type="library" name="commons-cli:commons-cli:1.4" level="project" />
+    <orderEntry type="library" name="Arr2JTableDemo" level="project" />
+    <orderEntry type="library" name="GameTemplate" level="project" />
+    <orderEntry type="library" name="Arr1JTableDemo" level="project" />
+    <orderEntry type="library" name="SapperGame1" level="project" />
+    <orderEntry type="library" name="SapperGame" level="project" />
   </component>
 </module>
