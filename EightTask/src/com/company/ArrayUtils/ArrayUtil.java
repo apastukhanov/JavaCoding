@@ -1,10 +1,7 @@
 package com.company.ArrayUtils;
 
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class ArrayUtil {
 
@@ -248,6 +245,17 @@ public class ArrayUtil {
         for (String row : str) {
             arr2d[counter] = toIntArray(row);
             counter++;
+        }
+        return arr2d;
+    }
+
+    public static int[][] genArr2d(int rows, int columns) {
+        Random random = new Random();
+        int[][] arr2d = new int[rows][columns];
+        for (int i=0; i < rows; i++ ) {
+            for (int k=0; k < columns; k++) {
+                arr2d[i][k]= random.nextInt(100);
+            }
         }
         return arr2d;
     }
