@@ -24,6 +24,12 @@ public class FileSysObj {
         }
     }
 
+    public static void writeArrayToFile(String arrString, String filename) throws FileNotFoundException {
+        try (PrintWriter out = new PrintWriter(filename)) {
+            out.println(arrString);
+        }
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
 //        System.out.println(toString(new int[][] {{1,2,3},{4,5},{4,5,6}}));
 //        writeArrayToFile(new int[][] {{1,2,3},{4,5},{4,5,6}}, "out2D.text");

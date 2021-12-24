@@ -3,6 +3,7 @@ package com.company;
 //import com.company.ArrayUtils.ArrayUtil;
 import com.company.CmdArgs.*;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Scanner;
@@ -37,11 +38,11 @@ public class ConsoleAppT8 {
       */
 
         int[][] arr = {
-                { 1, 2, 3, 4 },
-                { 0, 2, 2, 2 },
-                { 4, 2, 2, 2 },
-                { 1, 66, 3, 4 },
-                { 1, 2, 100, 2 }
+                {1, 2, 3, 4},
+                {0, 2, 2, 2},
+                {4, 2, 2, 2},
+                {1, 66, 3, 4},
+                {1, 2, 100, 2}
         };
 
 //        ArrayUtil.print2dArray (arr);
@@ -51,13 +52,24 @@ public class ConsoleAppT8 {
 
         CmdParams params = CmdArgs.parseArgs(args);
 
-        int[][] arr2  = toIntArray(readLinesFromFile(params.filename));
-        int[][] slicer = findMaxMinElementLocations(arr2);
+        if ((new File(params.filename)).exists()) {
+            int[][] arr2 = toIntArray(readLinesFromFile(params.filename));
+            if (arr2.length > 1 & arr2[0].length > 1) {
+                int[][] slicer = findMaxMinElementLocations(arr2);
 //        params= CmdArgs.parseArgs(new String[] {"-i", "/Desktop/input.txt", "-o", "/Desktop/output.txt"});
-        out.println();
-        print2dArray(delRowsAndColsInArray(arr2,slicer[0],slicer[1]));
-        writeArrayToFile(delRowsAndColsInArray(arr2,slicer[0],slicer[1]), params.outfile);
-        out.println();
-        out.print("-i " + params.filename +" -o " + params.outfile);
+                out.println();
+                print2dArray(delRowsAndColsInArray(arr2, slicer[0], slicer[1]));
+                writeArrayToFile(delRowsAndColsInArray(arr2, slicer[0], slicer[1]), params.outfile);
+                out.println();
+                out.println("-i " + params.filename + " -o " + params.outfile);
+            } else {
+                out.println("Количество строк и столбцов массива должно быть > 1 ");
+                writeArrayToFile("Количество строк и столбцов массива должно быть > 1 ",
+                        params.outfile);
+            }
+        } else {
+            writeArrayToFile("Введенный файл не существует!", params.outfile);
+            out.println("Введенный файл не существует!");
+        }
     }
 }
